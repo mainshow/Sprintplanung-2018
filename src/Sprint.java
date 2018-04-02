@@ -1,15 +1,13 @@
 
 public class Sprint {
 
-	private String name;
-	private int nummer;
+	private static int nummer = 0;
 	private Aufgabe[] aufgaben;
+	private double zeitkontingent = 30;
 	
-	public Sprint(String name, int nummer, Aufgabe[] aufgaben)
+	public Sprint()
 	{
-		this.name = name;
-		this.nummer = nummer;
-		this.aufgaben = aufgaben;
+		this.zeitkontingent = zeitkontingent;
 	}
 	
 	//Die Aufgaben müssen noch dem Sprint hinzugefügt werden
@@ -20,5 +18,26 @@ public class Sprint {
 		{
 			//Hier werden die Aufgaben des Sprints ausgegeben
 		}
+	}
+	
+	public static void erstelleSprint()
+	{
+		nummer++;
+		Sprint nummer = new Sprint();
+	}
+	
+	public static int getNummer()
+	{
+		return nummer;
+	}
+	
+	public double getZeitkontingent()
+	{
+		return zeitkontingent;
+	}
+	
+	public void setZeitkontingent(double subtrahend)
+	{
+		zeitkontingent = zeitkontingent - subtrahend;
 	}
 }
