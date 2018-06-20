@@ -5,36 +5,23 @@ public class Aufgabe {
 	private String name;
 	private int ticketnummer =00000;
 	private String datum;
-	private boolean standard;
+	private Boolean standard;
 	private String status;
 	private int sprint;
 	private static int anzahl = 0;
 	private double aufwand;
-	
-	public Aufgabe()
-	{
-		anzahl++;
-	}
 
-	public Aufgabe (String name, String datum, boolean standard, String status, double aufwand){
-		this.name = name;
+
+	public Aufgabe(){
+		this.name = JOptionPane.showInputDialog("Name?");
 		this.ticketnummer = ++ticketnummer;
-		this.datum = datum;
-		this.standard = standard;
-		this.status = status;
-		this.aufwand = aufwand;
+		this.datum = JOptionPane.showInputDialog("Datum?");
+		this.standard = Boolean.parseBoolean(JOptionPane.showInputDialog("Standardaufgabe?"));
+		this.status = JOptionPane.showInputDialog("Status?");
+		this.aufwand = Double.parseDouble(JOptionPane.showInputDialog("Aufwand?"));
 		anzahl++;
 	}
-
-	static void erstelleNeueAufgabe()
-	{
-		
-		Aufgabe name = new Aufgabe(JOptionPane.showInputDialog("Name?"), 
-				JOptionPane.showInputDialog("Datum?"),
-				Boolean.parseBoolean(JOptionPane.showInputDialog("Standardaufgabe?")),
-				JOptionPane.showInputDialog("Status?"),
-				Double.parseDouble(JOptionPane.showInputDialog("Aufwand?")));
-	}
+	
 	void gebeAufgabeAus()
 	{
 		System.out.println(this.ticketnummer + this.name + this.datum + this.standard + this.status + this.aufwand);
@@ -45,16 +32,15 @@ public class Aufgabe {
 		return anzahl;
 	}
 	
-	void fügeSprintHinzu()
+	public double getAufwand()
 	{
-		if(Sprint.getNummer() > 0)  
-		{
-			int aktuellerSprint = Sprint.getNummer();
-			if (aktuellerSprint.getZeitkontingent() - aufwand) > 0.0)
-			{
-				
-			}
-		}
+		return aufwand;
 	}
+
+	public String getName() {
+		return name;
+	}
+	
+	
 }
 

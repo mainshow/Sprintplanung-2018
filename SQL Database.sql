@@ -1,11 +1,11 @@
 #create database sprintplanung;
 
 use sprintplanung;
-
+ select user(); select current_user();
 #CREATE USER sqluser IDENTIFIED BY 'sqluserpw';
 
-#grant usage on *.* to sqluser@localhost identified by 'sqluserpw';
-#grant all privileges  on sprintplanung.* to sqluser@localhost;
+grant usage on sprintplanung.* to sqluser@localhost;
+grant all privileges on sprintplanung.* to sqluser@localhost;
 
 CREATE TABLE aufgabe (
 id INT NOT NULL AUTO_INCREMENT,

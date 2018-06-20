@@ -80,4 +80,36 @@ public class Datenbankverbindung {
 		
 		}	
 	}
+	
+	public static void fügeAufgabeEin() {
+		conn = getInstance();
+		
+		if(conn != null)
+		{
+			//Anfrage-Statement erzeugen.
+			Statement aufgabe;
+			try {
+				aufgabe = conn.createStatement();
+				
+				//Ergebnistabelle erzeugen und abholen
+				String sql = "INSERT INTO * FROM aufgabe " + "ORDER BY id";
+				ResultSet resultat = aufgabe.executeQuery(sql);
+				
+				//Ergebnissätze durchfahren
+				while (resultat.next()) {
+					int id = resultat.getInt("id");
+					String bezeichnung = resultat.getString("bezeichnung");
+					Date datum = resultat.getDate("anlagedatum");
+					boolean standardAufgabe  = resultat.getBoolean("standardaufgabe");
+					String aktuellerStatus = resultat.getString("aktuellerstatus");
+					int geschaetzterAufwand = resultat.getInt("geschaetzterAufwand");
+					int realeraufwand = resultat.getInt("realeraufwand");
+					String kommentar = resultat.getString("kommentar");
+				}
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		
+		}	
+	}
 }

@@ -1,43 +1,62 @@
 
 public class Sprint {
 
-	private static int nummer = 0;
-	private Aufgabe[] aufgaben;
-	private double zeitkontingent = 30;
+	private static int nummerGesetzt = 1;
+	private static double zeitkontingentGesetzt = 30;
+	private int nummer;
+	private double zeitkontingent;
+	public Aufgabe[] aufgabenSprint = new Aufgabe[100];
 	
 	public Sprint()
-	{
-		this.zeitkontingent = zeitkontingent;
+	{		
+		nummer = nummerGesetzt;
+		nummer++;
 	}
 	
 	//Die Aufgaben müssen noch dem Sprint hinzugefügt werden
 	
-	void gebeSprintAus()
+	public void gebeSprintAus(int sprint)
 	{
-		for(int i = 1; i < Aufgabe.getAnzahl(); i++)
-		{
-			//Hier werden die Aufgaben des Sprints ausgegeben
-		}
+		
+			if(aufgabenSprint[sprint] != null)
+			System.out.println(aufgabenSprint[sprint].getName());
+			else
+				System.out.println("Keine Daten");
+		
 	}
 	
-	public static void erstelleSprint()
+	public static int getNummerGesetzt()
 	{
-		nummer++;
-		Sprint nummer = new Sprint();
+		return nummerGesetzt;
 	}
 	
-	public static int getNummer()
+	public static double getZeitkontingentGesetzt()
+	{
+		return zeitkontingentGesetzt;
+	}
+	
+	public void setZeitkontingentGesetzt(double subtrahend)
+	{
+		zeitkontingent = zeitkontingent - subtrahend;
+	}
+	
+	public void setZeitkontingent(double zeitkontingentGesetzt)
+	{
+		zeitkontingent = zeitkontingentGesetzt;
+	}
+	
+	public int getNummer()
 	{
 		return nummer;
+	}
+	
+	public void setNummer(int nummerGesetzt)
+	{
+		nummer = nummerGesetzt;
 	}
 	
 	public double getZeitkontingent()
 	{
 		return zeitkontingent;
-	}
-	
-	public void setZeitkontingent(double subtrahend)
-	{
-		zeitkontingent = zeitkontingent - subtrahend;
 	}
 }
